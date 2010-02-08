@@ -26,7 +26,8 @@ h3. Example HTML
 
 <code>
 <ul id='my-sortable'>
-  &lt;li data-position='1'&gt;Your first item.&lt;/li&gt;
+  
+  <li data-position='1'>Your first item.&lt;/li&gt;
   &lt;li data-position='2'&gt;Your second item.&lt;/li&gt;
   &lt;li data-position='3'&gt;And so on...&lt;/li&gt;
 </ul>
