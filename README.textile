@@ -25,11 +25,11 @@ You will need to add an attribute to each draggable sort item containing the obj
 h3. Example HTML
 
 <code>
-&lt;ul id='my-sortable'&gt;
+<ul id='my-sortable'>
   &lt;li data-position='1'&gt;Your first item.&lt;/li&gt;
   &lt;li data-position='2'&gt;Your second item.&lt;/li&gt;
   &lt;li data-position='3'&gt;And so on...&lt;/li&gt;
-&lt;/ul&gt;
+</ul>
 </code>
 
 h3. The javascript
@@ -39,7 +39,6 @@ jQuery('#my-sortable').sortable({
   var the_sortable = jQuery(this);
   update : function(event, ui) {
     var newPosition = singular_sortable.reorderPositions(jQuery(ui.item), the_sortable, 'data-position');
-    
     // Now, you can use an AJAX call to send the new position back to the server, no messing with toArray or serialize
   }
 });
