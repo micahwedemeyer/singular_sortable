@@ -33,8 +33,8 @@ h3. Example HTML
 h3. The javascript
 
 <pre><code>jQuery('#my-sortable').sortable({
-  var the_sortable = jQuery(this);
   update : function(event, ui) {
+    var the_sortable = jQuery('#my-sortable');
     var newPosition = singular_sortable.reorderPositions(jQuery(ui.item), the_sortable, 'data-position');
     // Now, you can use an AJAX call to send the new position back to the server, no messing with toArray or serialize
   }
