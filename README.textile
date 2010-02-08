@@ -1,0 +1,52 @@
+h1. singular_sortable
+
+singluar_sortable is a javascript library for enhancing the behavior of the "jQuery UI sortable":http://jqueryui.com/demos/sortable/ Interaction.
+
+h2. The Problem
+
+Sortable is very nice, but it tends to treat the sorted elements as one lump group. The recommended way of dealing with the sorting event is to serialize the entire list and send it back to the server for processing.
+
+But, if you're using the Rails acts_as_list plugin (or something similar) to handle position info, then you've already got a powerful way of handling sorting on the backend. All you really need to know is the new integer position value for the moved item.
+
+h2. The Solution
+
+singular_sortable will automatically do all the position calculation on the client side and determine the new position value to be sent to the server for only the singular item that was moved.
+
+h2. Requirements
+
+* jQuery
+* jQuery UI
+* HTML5 - singular_sortable uses the "new HTML5 data- attributes":http://ejohn.org/blog/html-5-data-attributes/, but only as a way to store the data. There's no assumption of the underlying support for retrieving the values. Instead, jQuery is used for that. In other words, *it will work in all browsers*, but if your DOCTYPE isn't HTML5, then validators will complain.
+
+h2. Usage
+
+You will need to add an attribute to each draggable sort item containing the object's position value. We highly recommend using the new HTML5 data- attributes, as this is a way to do it with valid HTML. Otherwise, it will be technically invalid, but should still work.
+
+h3. Example HTML
+
+&lt;ul id='my-sortable'&gt;
+  <li data-position='1'>Your first item.</li>
+  <li data-position='2'>Your second item.</li>
+  <li data-position='3'>And so on...</li>
+</ul>
+
+h3. The javascript
+
+@
+jQuery('#my-sortable').sortable({
+  var the_sortable = jQuery(this);
+  update : function(event, ui) {
+    var newPosition = singular_sortable.reorderPositions(jQuery(ui.item), the_sortable, 'data-position');
+    
+    // Now, you can use an AJAX call to send the new position back to the server, no messing with toArray or serialize
+  }
+});
+@
+
+h2. What it's doing
+
+singluar_sortable borrows heavily from acts_as_list for inspiration. It maintains the position information in an attribute on the sort items. When an item is moved, the position values are recalculated and updated with the new sort ordering.
+
+h2. Sorting paginated lists
+
+The inspiration for this came from trying to sort a paginated list. By using the actual position values from the database, you will be able to easily sort items within a single page of a paginated list, since you're using their absolute position values in the list. There's currently no support for sorting an item onto a different page, but I'm trying to figure out a good way to do this. Still, that's probably outside the scope of singular_sortable
