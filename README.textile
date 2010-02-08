@@ -24,14 +24,12 @@ You will need to add an attribute to each draggable sort item containing the obj
 
 h3. Example HTML
 
-<code>
-<ul id='my-sortable'>
+  <ul id='my-sortable'>
   
-  <li data-position='1'>Your first item.&lt;/li&gt;
-  &lt;li data-position='2'&gt;Your second item.&lt;/li&gt;
-  &lt;li data-position='3'&gt;And so on...&lt;/li&gt;
-</ul>
-</code>
+    <li data-position='1'>Your first item.&lt;/li&gt;
+    &lt;li data-position='2'&gt;Your second item.&lt;/li&gt;
+    &lt;li data-position='3'&gt;And so on...&lt;/li&gt;
+  </ul>
 
 h3. The javascript
 
