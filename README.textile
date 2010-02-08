@@ -23,12 +23,13 @@ h2. Usage
 You will need to add an attribute to each draggable sort item containing the object's position value. We recommend using the new "HTML5 data- attributes":http://ejohn.org/blog/html-5-data-attributes/, as this is a way to do it with valid HTML. Otherwise, it will be technically invalid, but should still work.
 
 h3. Example HTML
-
-  &lt;ul id='my-sortable'&gt;
-    &lt;li data-position='1'&gt;Your first item.&lt;/li&gt;
-    &lt;li data-position='2'&gt;Your second item.&lt;/li&gt;
-    &lt;li data-position='3'&gt;And so on...&lt;/li&gt;
-  &lt;/ul&gt;
+<pre><code>
+&lt;ul id='my-sortable'&gt;
+  &lt;li data-position='1'&gt;Your first item.&lt;/li&gt;
+  &lt;li data-position='2'&gt;Your second item.&lt;/li&gt;
+  &lt;li data-position='3'&gt;And so on...&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
 
 h3. The javascript
 
