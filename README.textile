@@ -28,7 +28,7 @@ h3. Example HTML
   <li data-position='1'>Your first item.</li>
   <li data-position='2'>Your second item.</li>
   <li data-position='3'>And so on...</li>
-</ul>
+ </ul>
 </code></pre>
 
 h3. The javascript
