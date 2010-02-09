@@ -1,6 +1,6 @@
 h1. singular_sortable
 
-singluar_sortable is a javascript library for enhancing the behavior of the "jQuery UI sortable":http://jqueryui.com/demos/sortable/ Interaction.
+singluar_sortable is a jQuery UI plugin for enhancing the behavior of the "jQuery UI sortable":http://jqueryui.com/demos/sortable/ Interaction.
 
 h2. The Problem
 
@@ -33,12 +33,13 @@ h3. Example HTML
 h3. The javascript
 
 <pre><code>jQuery('#my-sortable').sortable({
-  update : function(event, ui) {
-    var the_sortable = jQuery('#my-sortable');
-    var newPosition = singular_sortable.reorderPositions(jQuery(ui.item), the_sortable, 'data-position');
-    // Now, you can use an AJAX call to send the new position back to the server, no messing with toArray or serialize
-  }
-});</code></pre>
+  }).singular_sortable({
+    positionAttribute : 'data-position',
+    update : function(e, ui) {
+      var newPositionValue = ui.numericalPosition;
+      // Now, you can use an AJAX call to send the new position back to the server, no messing with toArray or serialize
+    }
+  });</code></pre>
 
 h2. What it's doing
 
